@@ -1,4 +1,4 @@
-import './ButtonRandom.css';
+import './styles/ButtonRandom.css';
 import { noRepeatBackground } from '../utils/norepeatBackground';
 import { noRepeatPhrase } from '../utils/norepeatPhrase';
 
@@ -30,6 +30,6 @@ function ButtonRandom({
     return (
         <button style={stylesButton} onClick={handleAleatory} className="main__section--button">Ver otro</button>
     );
-}
+}           
 
 export { ButtonRandom };

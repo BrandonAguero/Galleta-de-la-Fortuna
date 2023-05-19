@@ -42,7 +42,7 @@ function App() {
   const mainStyles = {
     backgroundImage: `url('../images/fondo${currentImage}.jpg')`
   }
-  
+
   return (
     <main className='main' style={mainStyles}>
       <SectionChildren>

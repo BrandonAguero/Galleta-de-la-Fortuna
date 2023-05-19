@@ -1,4 +1,4 @@
-import './PhraseRandom.css';
+import './styles/PhraseRandom.css';
 
 function PhraseRandom({ phrase }) {
     return (

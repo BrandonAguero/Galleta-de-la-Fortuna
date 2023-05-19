@@ -1,4 +1,4 @@
-import './SectionChildren.css';
+import './styles/SectionChildren.css';
 
 function SectionChildren({ children }) {
     return (
