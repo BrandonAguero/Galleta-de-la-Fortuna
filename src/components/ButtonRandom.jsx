@@ -1,4 +1,5 @@
 import './ButtonRandom.css';
+import { noRepeatBackground } from '../utils/norepeatBackground';
 
 function ButtonRandom({ setPhraseRandom, 
     phrases, randomAleatoryArray, 
@@ -10,8 +11,9 @@ function ButtonRandom({ setPhraseRandom,
     const handleAleatory = () => {
         const phraseIndex = randomAleatoryArray(phrases).phrase
         setPhraseRandom(phraseIndex);
-    
-        const index = randomAleatoryArray(imageBackground);
+
+
+        let index = noRepeatBackground(background, imageBackground)
 
         setAleatoryImage(index.numberImage);
         
