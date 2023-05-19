@@ -1,27 +1,30 @@
 import './ButtonRandom.css';
 import { noRepeatBackground } from '../utils/norepeatBackground';
+import { noRepeatPhrase } from '../utils/norepeatPhrase';
 
-function ButtonRandom({ setPhraseRandom, 
-    phrases, randomAleatoryArray, 
-    setAleatoryImage, imageBackground,
-    setBackground,
-    background
+function ButtonRandom({
+        setCurrentPhrase,
+        phrases,
+        phraseRandom,
+        setCurrentImage,
+        setCurrentBackground,
+        currentBackground,
+        imageAndBackground
     }) {
-
     const handleAleatory = () => {
-        const phraseIndex = randomAleatoryArray(phrases).phrase
-        setPhraseRandom(phraseIndex);
 
+        const phraseIndex = noRepeatPhrase(phraseRandom, phrases)
+        setCurrentPhrase(phraseIndex);
 
-        let index = noRepeatBackground(background, imageBackground)
+        let index = noRepeatBackground(currentBackground, imageAndBackground)
 
-        setAleatoryImage(index.numberImage);
+        setCurrentImage(index.numberImage);
         
-        setBackground(index.backgroundButton);
+        setCurrentBackground(index.backgroundButton);
     }
 
     const stylesButton = {
-        backgroundColor: `${background}`,
+        backgroundColor: `${currentBackground}`,
     }
 
     return (

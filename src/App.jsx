@@ -7,7 +7,7 @@ import { PhraseRandom } from './components/PhraseRandom';
 import './App.css'
 import { useState } from 'react';
 
-const imageBackground = [
+const imageAndBackground = [
   {
     numberImage: 1,
     backgroundButton: '#71ada1'
@@ -30,30 +30,33 @@ function App() {
   
   const phraseAleatory = randomAleatoryArray(phrases).phrase;
 
-  const assetsAleatory = randomAleatoryArray(imageBackground);
+  const assetsAleatory = randomAleatoryArray(imageAndBackground);
 
-  const [phraseRandom, setPhraseRandom] = useState(phraseAleatory);
-  const [aleatoryImage, setAleatoryImage] = useState(assetsAleatory.numberImage);
-  const [background, setBackground] = useState(assetsAleatory.backgroundButton);
+  const numberImage = assetsAleatory.numberImage;
+  const backgroundButton = assetsAleatory.backgroundButton;
+
+  const [currentPhrase, setCurrentPhrase] = useState(phraseAleatory);
+  const [currentImage, setCurrentImage] = useState(numberImage);
+  const [currentBackground, setCurrentBackground] = useState(backgroundButton);
 
   const mainStyles = {
-    backgroundImage: `url('../images/fondo${aleatoryImage}.jpg')`
+    backgroundImage: `url('../images/fondo${currentImage}.jpg')`
   }
-
   
   return (
     <main className='main' style={mainStyles}>
       <SectionChildren>
         <h1>galletas de la fortuna</h1>
-        <PhraseRandom phrase={phraseRandom} />
+        <PhraseRandom phrase={currentPhrase} />
         <ButtonRandom 
-          setPhraseRandom={setPhraseRandom} 
-          phrases={phrases} 
-          randomAleatoryArray={randomAleatoryArray}
-          setAleatoryImage={setAleatoryImage}
-          imageBackground={imageBackground}
-          setBackground={setBackground}
-          background={background}
+          setCurrentPhrase={setCurrentPhrase}
+          phrases={phrases}
+          phraseRandom={currentPhrase}
+          setCurrentImage={setCurrentImage}
+          currentImage={currentImage}
+          setCurrentBackground={setCurrentBackground}
+          currentBackground={currentBackground}
+          imageAndBackground={imageAndBackground}
         />
       </SectionChildren>
     </main>
