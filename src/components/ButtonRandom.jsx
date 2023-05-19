@@ -1,16 +1,29 @@
-function ButtonRandom({ setPhraseRandom, phrases, randomAleatoryArray, setAleatoryImage, numberImage}) {
+import './ButtonRandom.css';
+
+function ButtonRandom({ setPhraseRandom, 
+    phrases, randomAleatoryArray, 
+    setAleatoryImage, imageBackground,
+    setBackground,
+    background
+    }) {
 
     const handleAleatory = () => {
         const phraseIndex = randomAleatoryArray(phrases).phrase
         setPhraseRandom(phraseIndex);
+    
+        const index = randomAleatoryArray(imageBackground);
 
-        const numberIndex = randomAleatoryArray(numberImage);
-        setAleatoryImage(numberIndex);
+        setAleatoryImage(index.numberImage);
+        
+        setBackground(index.backgroundButton);
+    }
 
+    const stylesButton = {
+        backgroundColor: `${background}`,
     }
 
     return (
-        <button onClick={handleAleatory} className="main__section--button">Ver otro</button>
+        <button style={stylesButton} onClick={handleAleatory} className="main__section--button">Ver otro</button>
     );
 }
 

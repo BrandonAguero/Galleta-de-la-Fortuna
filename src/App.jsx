@@ -7,31 +7,53 @@ import { PhraseRandom } from './components/PhraseRandom';
 import './App.css'
 import { useState } from 'react';
 
-const numberImage = [1, 2, 3, 4];
+const imageBackground = [
+  {
+    numberImage: 1,
+    backgroundButton: '#71ada1'
+  },
+  {
+    numberImage: 2,
+    backgroundButton: '#ff2ae8'
+  },
+  {
+    numberImage: 3,
+    backgroundButton: '#feae00'
+  },
+  {
+    numberImage: 4,
+    backgroundButton: '#758ffe'
+  }
+]
 
 function App() {
   
   const phraseAleatory = randomAleatoryArray(phrases).phrase;
-  const numberAleatory = randomAleatoryArray(numberImage);
+
+  const assetsAleatory = randomAleatoryArray(imageBackground);
 
   const [phraseRandom, setPhraseRandom] = useState(phraseAleatory);
-  const [aleatoryImage, setAleatoryImage] = useState(numberAleatory);
+  const [aleatoryImage, setAleatoryImage] = useState(assetsAleatory.numberImage);
+  const [background, setBackground] = useState(assetsAleatory.backgroundButton);
 
-  const objStyles = {
+  const mainStyles = {
     backgroundImage: `url('../images/fondo${aleatoryImage}.jpg')`
   }
 
+  
   return (
-    <main className='main' style={objStyles}>
-      <h1>galletas de la fortuna</h1>
+    <main className='main' style={mainStyles}>
       <SectionChildren>
+        <h1>galletas de la fortuna</h1>
         <PhraseRandom phrase={phraseRandom} />
         <ButtonRandom 
           setPhraseRandom={setPhraseRandom} 
           phrases={phrases} 
           randomAleatoryArray={randomAleatoryArray}
           setAleatoryImage={setAleatoryImage}
-          numberImage={numberImage}
+          imageBackground={imageBackground}
+          setBackground={setBackground}
+          background={background}
         />
       </SectionChildren>
     </main>

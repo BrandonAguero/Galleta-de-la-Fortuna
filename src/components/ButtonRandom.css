@@ -1,0 +1,21 @@
+.main__section--button {
+    border: none;
+    width: 50%;
+    height: 5rem;
+    background-color: cadetblue;
+    cursor: pointer;
+    border-radius: 1rem;
+    border: 0.3rem solid #fff;
+    font-size: 1rem;
+    color: #fff;
+}
+@media screen and (min-width: 400px) {
+    .main__section--button {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 800px) {
+    .main__section--button {
+        font-size: 2rem;
+    }
+}
