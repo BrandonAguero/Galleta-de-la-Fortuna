@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
+    min-width: 28.8rem;
     width: 90vw;
     height: 40vh;
     max-width: 50rem;
