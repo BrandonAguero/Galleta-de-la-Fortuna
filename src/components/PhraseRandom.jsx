@@ -1,8 +1,8 @@
-function PhraseRandom() {
+function PhraseRandom({ phrase }) {
     return (
         <div className="main__section--div">
             <p>
-                ¿HOw are you?
+                {phrase}
             </p>
         </div>
     );
